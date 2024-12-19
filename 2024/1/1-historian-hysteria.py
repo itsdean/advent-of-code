@@ -49,20 +49,23 @@ def load_input_lines():
     return input_lines
 
 
-def main():
-    input_lines = load_input_lines()
-
+def get_left_right_values(lines):
     left = []
     right = []
 
-    for line in input_lines:
+    for line in lines:
         line = line.rstrip()
         line_split = line.split('   ')
 
-        # print(line)
-
         left.append(int(line_split[0]))
         right.append(int(line_split[1]))
+
+    return left, right
+
+
+def part_one():
+    input_lines = load_input_lines()
+    left, right = get_left_right_values(input_lines)
 
     left.sort()
     right.sort()
@@ -78,7 +81,25 @@ def main():
         else:
             total_difference += right_value - left_value
     
-    print(total_difference)
+    print(f"Part 1: {total_difference}")
+
+
+def part_two():
+    input_lines = load_input_lines()
+    left, right = get_left_right_values(input_lines)
+
+    similarity_score = 0
+    
+    for left_value in left:
+        count = right.count(left_value)
+        similarity_score += left_value * count
+
+    print(f"Part 2: {similarity_score}")
+
+
+def main():
+    part_one()
+    part_two()
 
 
 if __name__ == '__main__':
