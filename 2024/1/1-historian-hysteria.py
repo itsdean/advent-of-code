@@ -101,5 +101,6 @@ def main():
     part_one()
     part_two()
 
+
 if __name__ == '__main__':
     main()
