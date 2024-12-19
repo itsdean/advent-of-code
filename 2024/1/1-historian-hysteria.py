@@ -81,7 +81,7 @@ def part_one():
         else:
             total_difference += right_value - left_value
     
-    print(f"Part 1: {total_difference}")    
+    print(f"Part 1: {total_difference}")
 
 
 def part_two():
